@@ -1,0 +1,9 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/YounesseAmhend/AI-Afrique-Insight-Backend
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/YounesseAmhend/AI-Afrique-Insight-Frontend
+[submodule "scraper"]
+	path = scraper
+	url = https://github.com/YounesseAmhend/Africa-AI-Insight-Scraper
