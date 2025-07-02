@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3013:3013"
+    restart: always
+    container_name: frontend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3014:3014"
+    restart: always
+    container_name: backend
+
+  scraper:
+    build:
+      context: ./scraper
+      dockerfile: Dockerfile
+    expose:
+      - "3015"
+    restart: always
+    container_name: scraper
