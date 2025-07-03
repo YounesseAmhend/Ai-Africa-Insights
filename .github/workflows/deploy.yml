@@ -1,0 +1,21 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main # Change to your main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        run: |
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            cd /path/to/project
+            git pull
+            git submodule update --init --recursive
+            docker compose down
+            docker compose up -d --build
+          EOF
