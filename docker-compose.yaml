@@ -1,46 +1,46 @@
 version: "3.8"
 
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "3013:3013"
-    restart: always
-    container_name: frontend
-    environment:
-      - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-      - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
-      - DB_NAME=neondb
-      - DB_USER=neondb_owner
-      - DB_PASSWORD=npg_M1HBdo3TmapX
-      - DB_PORT=5432
-      - DB_SSLMODE=require
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    ports:
-      - "3014:3014"
-    restart: always
-    container_name: backend
-    environment:
-    - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - "3013:3013"
+        restart: always
+        container_name: frontend
+        environment:
+            - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
+            - DB_NAME=neondb
+            - DB_USER=neondb_owner
+            - DB_PASSWORD=npg_M1HBdo3TmapX
+            - DB_PORT=5432
+            - DB_SSLMODE=require
+    backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        ports:
+            - "3014:3014"
+        restart: always
+        container_name: backend
+        environment:
+            - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
 
-  scraper:
-    build:
-      context: ./scraper
-      dockerfile: Dockerfile
-    expose:
-      - "3015"
-    restart: always
-    container_name: scraper
-    environment:
-      - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-      - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
-      - DB_NAME=neondb
-      - DB_USER=neondb_owner
-      - DB_PASSWORD=npg_M1HBdo3TmapX
-      - DB_PORT=5432
-      - DB_SSLMODE=require
+    scraper:
+        build:
+            context: ./scraper
+            dockerfile: Dockerfile
+        expose:
+            - "3015"
+        restart: always
+        container_name: scraper
+        environment:
+            - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
+            - DB_NAME=neondb
+            - DB_USER=neondb_owner
+            - DB_PASSWORD=npg_M1HBdo3TmapX
+            - DB_PORT=5432
+            - DB_SSLMODE=require
