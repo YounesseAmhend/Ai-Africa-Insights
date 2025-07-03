@@ -9,3 +9,6 @@ git:
 	
 submodules: 
 	git submodule update --init --remote --recursive --force --rebase
+
+docker:
+	docker-compose up -d --build
