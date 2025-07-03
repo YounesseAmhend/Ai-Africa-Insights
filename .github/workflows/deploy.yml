@@ -33,7 +33,10 @@ jobs:
             cd ../scraper
             git checkout main
             git pull --force
-            cd ..
+            cd protos
+            git checkout main
+            git pull --force
+            cd ../..
             docker-compose stop
             docker-compose up -d --build
           EOF
