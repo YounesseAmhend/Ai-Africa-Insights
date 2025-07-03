@@ -34,6 +34,6 @@ jobs:
             git checkout main
             git pull --force
             cd ..
-            docker-compose down
+            docker-compose stop
             docker-compose up -d --build
           EOF
