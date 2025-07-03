@@ -11,12 +11,12 @@ services:
         container_name: frontend
         environment:
             - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-            - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
-            - DB_NAME=neondb
-            - DB_USER=neondb_owner
-            - DB_PASSWORD=npg_M1HBdo3TmapX
+            - DB_HOST=localhost
+            - DB_NAME=mydb
+            - DB_USER=myuser
+            - DB_PASSWORD=mypassword
             - DB_PORT=5432
-            - DB_SSLMODE=require
+            - DB_SSLMODE=disable
     backend:
         build:
             context: ./backend
@@ -38,12 +38,12 @@ services:
         container_name: scraper
         environment:
             - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-            - DB_HOST=ep-broad-heart-a2v7pr2f-pooler.eu-central-1.aws.neon.tech
-            - DB_NAME=neondb
-            - DB_USER=neondb_owner
-            - DB_PASSWORD=npg_M1HBdo3TmapX
+            - DB_HOST=localhost
+            - DB_NAME=mydb
+            - DB_USER=myuser
+            - DB_PASSWORD=mypassword
             - DB_PORT=5432
-            - DB_SSLMODE=require
+            - DB_SSLMODE=disable
 
     postgres:
         image: postgres:17
