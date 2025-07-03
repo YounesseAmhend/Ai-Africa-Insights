@@ -27,6 +27,7 @@ services:
         container_name: backend
         environment:
             - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            
 
     scraper:
         build:
@@ -44,3 +45,14 @@ services:
             - DB_PASSWORD=npg_M1HBdo3TmapX
             - DB_PORT=5432
             - DB_SSLMODE=require
+
+    postgres:
+      image: postgres:17
+      container_name: local_postgres
+      restart: always
+      environment:
+        POSTGRES_USER: myuser
+        POSTGRES_PASSWORD: mypassword
+        POSTGRES_DB: mydb
+      volumes:
+        - pg_data:/var/lib/postgresql/data
