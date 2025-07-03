@@ -21,7 +21,6 @@ jobs:
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             cd /var/www/aiafrique
-
             git pull --force
             git submodule update --init --recursive
             cd backend
