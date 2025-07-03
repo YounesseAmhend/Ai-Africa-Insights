@@ -22,7 +22,7 @@ services:
             context: ./backend
             dockerfile: Dockerfile
         ports:
-            - "3014:3014"
+            - "3014:8080"
         restart: always
         container_name: backend
         environment:
