@@ -9,14 +9,7 @@ services:
             - "3013:3013"
         restart: always
         container_name: frontend
-        environment:
-            - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-            - DB_HOST=localhost
-            - DB_NAME=mydb
-            - DB_USER=myuser
-            - DB_PASSWORD=mypassword
-            - DB_PORT=5432
-            - DB_SSLMODE=disable
+
     backend:
         build:
             context: ./backend
@@ -27,6 +20,13 @@ services:
         container_name: backend
         environment:
             - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            - DB_HOST=postgres
+            - DB_NAME=mydb
+            - DB_USER=myuser
+            - DB_PASSWORD=mypassword
+            - DB_PORT=5432
+            - DB_SSLMODE=disable
 
     scraper:
         build:
@@ -38,7 +38,7 @@ services:
         container_name: scraper
         environment:
             - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
-            - DB_HOST=localhost
+            - DB_HOST=postgres
             - DB_NAME=mydb
             - DB_USER=myuser
             - DB_PASSWORD=mypassword
