@@ -25,6 +25,7 @@ jobs:
             git pull --force
             git submodule update --init --recursive
             cd backend
+            git checkout main
             git pull --force
             cd ../frontend
             git pull --force
