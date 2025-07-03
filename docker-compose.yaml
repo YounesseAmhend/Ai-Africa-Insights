@@ -18,6 +18,8 @@ services:
       - "3014:3014"
     restart: always
     container_name: backend
+    environment:
+    - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
 
   scraper:
     build:
