@@ -20,7 +20,8 @@ jobs:
       - name: Deploy via SSH
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-            cd /path/to/project
+            cd /var/www/aiafrique
+
             git pull --force
             git submodule update --init --recursive
             cd backend
