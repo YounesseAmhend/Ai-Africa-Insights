@@ -3,19 +3,33 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main # Change to your main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy via SSH
         run: |
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             cd /path/to/project
-            git pull
+            git pull --force
             git submodule update --init --recursive
+            cd backend
+            git pull --force
+            cd ../frontend
+            git pull --force
+            cd ../scraper
+            git pull --force
+            cd ..
             docker compose down
             docker compose up -d --build
           EOF
