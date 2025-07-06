@@ -54,6 +54,7 @@ services:
             POSTGRES_USER: myuser
             POSTGRES_PASSWORD: mypassword
             POSTGRES_DB: mydb
+            POSTGRES_PORT: 5432
             POSTGRES_MAX_CONNECTIONS: 100
         volumes:
             - pg_data:/var/lib/postgresql/data
