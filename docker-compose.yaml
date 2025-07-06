@@ -19,7 +19,7 @@ services:
         restart: always
         container_name: backend
         environment:
-            - API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
+            - GOOGLE_API_KEY=AIzaSyCfGJVNIuZFuxEVsV7w0-DmXvIaiqbnb54
             - DB_HOST=postgres
             - DB_NAME=mydb
             - DB_USER=myuser
