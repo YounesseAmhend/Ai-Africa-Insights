@@ -26,7 +26,8 @@ services:
             - DB_PASSWORD=mypassword
             - DB_PORT=5432
             - DB_SSLMODE=disable
-
+        depends_on:
+            - postgres
     scraper:
         build:
             context: ./scraper
@@ -43,7 +44,8 @@ services:
             - DB_PASSWORD=mypassword
             - DB_PORT=5432
             - DB_SSLMODE=disable
-
+        depends_on:
+            - postgres
     postgres:
         image: postgres:17
         container_name: local_postgres
