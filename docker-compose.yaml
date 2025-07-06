@@ -25,7 +25,7 @@ services:
             - DB_USER=myuser
             - DB_PASSWORD=mypassword
             - DB_PORT=5432
-            - DB_SSLMODE=require
+            - DB_SSLMODE=disable
         depends_on:
             - postgres
     scraper:
@@ -43,7 +43,7 @@ services:
             - DB_USER=myuser
             - DB_PASSWORD=mypassword
             - DB_PORT=5432
-            - DB_SSLMODE=require
+            - DB_SSLMODE=disable
         depends_on:
             - postgres
     postgres:
@@ -57,7 +57,7 @@ services:
             POSTGRES_PORT: 5432
             POSTGRES_HOST: postgres
             POSTGRES_MAX_CONNECTIONS: 100
-            POSTGRES_SSL_MODE: require
+           
         volumes:
             - pg_data:/var/lib/postgresql/data
 
