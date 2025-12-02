@@ -23,19 +23,26 @@ jobs:
             cd /var/www/aiafrique
             git pull --force
             git submodule update --init --recursive
+
             cd backend
             git checkout main
             git pull --force
-            cd ../frontend
-            git checkout main
-            git pull --force
+
+
             cd ../scraper
             git checkout main
             git pull --force
+
+            cd ../frontend
+            git checkout main
+            git pull --force
+            
             cd protos
             git checkout main
             git pull --force
             cd ../..
-            docker-compose stop
-            docker-compose up -d --build
+
+          docker compose down
+          docker compose up -d backend scraper postgres
+
           EOF
