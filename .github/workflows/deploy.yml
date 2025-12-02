@@ -42,7 +42,7 @@ jobs:
             git pull --force
             cd ../..
 
-          docker compose down
-          docker compose up -d backend scraper postgres
+            docker-compose down
+            docker-compose up -d backend scraper postgres
 
-          EOF
+            EOF
