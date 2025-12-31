@@ -42,5 +42,5 @@ jobs:
             git pull --force
             cd ../..
 
-            docker-compose up -d --build
+            docker-compose up -d --build backend scraper postgres
           EOF
